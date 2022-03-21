@@ -5,8 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>inGeorgian</title>
+    <link rel="stylesheet" href="./style.css"/>
+    <link rel="icon" href="georgia.ico">
 </head>
 <body>
+    <header class="header">
+        <nav class="nav-text"></nav>
+    </header>
+    <div>
+        <p class="text-ru" id="input">Спасибо</p>
+        <p class="text-ru" id="translit">мадлоба</p>
+        <p class="text-ge" id="output"></p>
+    </div>
+
+    <div class="wordcontainer"></div>
     
+    <div class="keyboard">
+        <div class="keycontainer">
+            <div class="key backspace"></div>
+            <div class="key spacekey">space</div>
+            <div class="key backspace" id="backspace">back</div>
+        </div>
+    </div>
+    <script type="module" src="./index.js"></script>
 </body>
 </html>

@@ -1,1 +1,141 @@
-/*some text*/
+:root {
+    --color-main: rgb(125, 179, 90);
+    --color-play: rgb(230, 233, 171);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/*---FONTS---*/
+@font-face {
+    font-family: Montserrat;
+    src: url(./fonts/Montserrat/static/Montserrat-Light.ttf);
+}
+@font-face {
+    font-family: NotoSansGeorgian;
+    src: url(./fonts/Noto_Sans_Georgian/static/NotoSansGeorgian/NotoSansGeorgian-Light.ttf);
+}
+@font-face {
+    font-family: NotoSerifGeorgian;
+    src: url(./fonts/Noto_Serif_Georgian/static/NotoSerifGeorgian/NotoSerifGeorgian-Light.ttf);
+}
+/*---FONTS---*/
+
+.header {
+    height: 100px;
+}
+
+.text-ru {
+    font-family: 'Montserrat';
+    font-size: 60px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.text-ge {
+    font-family: 'NotoSerifGeorgian';
+    font-size: 70px;
+    text-align: center;
+}
+
+.keyboard {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    width: 670px;
+}
+
+.key {
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #377491;
+}
+
+.key:hover {
+    background-color: #235a74;
+    transition: .3s;
+}
+
+.letter {
+    width: 52px;
+    height: 85px;
+    padding-right: 6px;
+    padding-top: 3px;
+}
+
+.keyGe {
+    font-family: 'NotoSerifGeorgian';
+    color: white;
+    font-size: 45px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.keyRu {
+    font-family: 'Montserrat';
+    font-weight: 600;
+    color: #d9db50;
+    font-size: 25px;
+    text-align: right;
+}
+
+.keycontainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    width: 670px;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    color: white;
+    font-size: 35px;
+    line-height: 45px;
+    text-align: center;
+}
+
+.backspace {
+    width: 120px;
+    height: 50px;
+}
+
+.spacekey {
+    width: 285px;
+    height: 50px;
+}
+
+.wordcontainer {
+    margin: 50px auto 120px auto;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.wordletter {
+    font-family: 'NotoSerifGeorgian';
+    font-size: 75px;
+    text-align: center;
+    width: 85px;
+    height: 120px;
+    border: 0;
+    padding-bottom: 10px;
+    border-radius: 3px;
+    background-color: #e8e9b9;
+}
+.wordletter:active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+.wordletter:hover {
+    background-color: #d4d5a0;
+    transition: .3s;
+}
