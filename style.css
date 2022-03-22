@@ -97,23 +97,26 @@ html {
     font-family: 'Montserrat';
     font-weight: 400;
     color: white;
-    font-size: 35px;
-    line-height: 45px;
     text-align: center;
 }
 
 .backspace {
-    width: 120px;
+    font-size: 25px;
+    line-height: 45px;
+    width: 140px;
     height: 50px;
 }
 
 .spacekey {
+    font-size: 35px;
+    line-height: 45px;
     width: 285px;
     height: 50px;
 }
 
 .wordcontainer {
-    margin: 50px auto 120px auto;
+    height: 120px;
+    margin: 30px auto 100px auto;
     display: flex;
     justify-content: center;
     gap: 12px;
@@ -130,7 +133,8 @@ html {
     border-radius: 3px;
     background-color: #e8e9b9;
 }
-.wordletter:active, :hover, :focus {
+
+.wordletter:active, :focus {
     outline: 0;
     outline-offset: 0;
 }
@@ -139,3 +143,40 @@ html {
     background-color: #d4d5a0;
     transition: .3s;
 }
+
+.wrongletter {
+    transition-delay: 1000;
+    animation-duration: 0.3s;
+    animation-name: shake;
+}
+
+@keyframes shake {
+    0% { transform: translateY(0px) }
+    10% { transform: translateY(-5px) }
+    20% { transform: translateY(0px) }
+    30% { transform: translateY(5px) }
+    40% { transform: translateY(0px) }
+    50% { transform: translateY(-5px) }
+    60% { transform: translateY(0px) }
+    70% { transform: translateY(5px) }
+    80% { transform: translateY(0px) }
+    90% { transform: translateY(-5px) }
+    100% { transform: translateY(0px) }
+  }
+
+  .correct {
+    transition-delay: 1000;
+    animation-duration: 1s;
+    animation-name: goaway;
+  }
+
+  @keyframes goaway {
+    0% { transform: translate(0, 0px) }
+    10% { transform: translate(0, 2px) }
+    20% { transform: translate(0, 10px) }
+    40% { transform: translate(0, 10px) }
+    50% { transform: translate(-30px, 10px) }
+    100% { transform: translate(calc(-100vw), 10px) }
+  }
+
+

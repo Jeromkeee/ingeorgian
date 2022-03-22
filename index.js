@@ -44,7 +44,6 @@ function getOne(data, dataleng) {
     wordGe = obj[wordRu];
     let wordTr = wordGe.split('').map(el => alphabet[el]).join('');
     document.getElementById('translit').textContent = wordTr;
-    /*document.getElementById('output').textContent = wordGe;*/
     for (let i = 0; i < wordGe.length; i++) {
         const wordbox = document.createElement('input');
         wordbox.classList.add('wordletter');
@@ -56,6 +55,23 @@ function getOne(data, dataleng) {
 }
 
 window.addEventListener('load', getWords);
+
+/*---clearform---*/
+
+const btton = document.getElementById('btn')
+const btton2 = document.getElementById('btn2')
+
+function regenform() {
+    while (wordboxes.firstChild) wordboxes.removeChild(wordboxes.firstChild)
+    currentletter = 1
+    getWords()
+}
+
+btton.addEventListener('click', regenform);
+btton2.addEventListener('click', srsr);
+
+function srsr() {
+}
 
 /*---typing---*/
 
@@ -69,12 +85,16 @@ function letterType(event) {
         document.getElementById(`letr${currentletter}`).value = ltr;
         currentletter++
     }
+    if (currentletter == wordGe.length+1) checkResult()
 }
 
 function deleteletter() {
     if (currentletter > 1) {
         currentletter--;
         document.getElementById(`letr${currentletter}`).value = ''
+    }
+    for (let i = 0; i < wordGe.length; i++) {
+            document.getElementById(`letr${i+1}`).classList.remove('wrongletter')
     }
 }
 
@@ -85,3 +105,20 @@ function deleteletter2(event) {
     letters.addEventListener('click', letterType);
     backspace.addEventListener('click', deleteletter);
     document.addEventListener('keydown', deleteletter2);
+
+
+/*---checking---*/
+
+function checkResult() {
+    let typeword = '';
+    for (let i = 1; i < wordGe.length+1; i++) typeword += document.getElementById(`letr${i}`).value;
+    for (let i = 0; i < wordGe.length; i++) {
+        if (typeword.charAt(i) !== wordGe.charAt(i)) {
+            document.getElementById(`letr${i+1}`).classList.add('wrongletter')
+        }
+    }
+    if (typeword === wordGe) {
+        for (let i = 1; i < wordGe.length+1; i++) document.getElementById(`letr${i}`).classList.add('correct');
+        setTimeout(regenform, 900)
+    }
+}
