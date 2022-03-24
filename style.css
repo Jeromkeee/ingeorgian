@@ -36,7 +36,7 @@ html {
     justify-content: space-between;
     padding: 10px 10px;
     height: 70px;
-    margin-bottom: 80px;
+    margin-bottom: 50px;
     max-width: 400px;
 }
 
@@ -346,7 +346,7 @@ html {
 
 .wordcontainer {
     height: 70px;
-    margin: 50px auto 100px auto;
+    margin: 40px auto 50px auto;
     display: flex;
     justify-content: center;
     gap: 6px;
