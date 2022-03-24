@@ -34,9 +34,9 @@ html {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    padding: 10px 10px;
-    height: 70px;
-    margin-bottom: 50px;
+    padding: 40px 10px 10px 10px;
+    height: 120px;
+    margin-bottom: 20px;
     max-width: 400px;
 }
 
@@ -133,9 +133,11 @@ html {
     height: 100vh;
     padding: 10px 40px 100px 40px;
     z-index: 2;
+    display: none;
 }
 
 .about-box.active {
+    display: inline;
     animation-duration: .3s;
     animation-name: slidemenu;
     animation-fill-mode: forwards;
@@ -167,7 +169,7 @@ html {
 
 .keyboardcontainer {
     margin: 0 auto;
-    width: 385px;
+    width: 380px;
 }
 
 /*---helpcontainer---*/
@@ -176,7 +178,7 @@ html {
     display: flex;
     justify-content: end;
     padding: 10px 20px;
-    width: 385px;
+    width: 380px;
     height: 80px;
     font-family: 'Montserrat';
     font-weight: 600;
@@ -270,7 +272,7 @@ html {
     flex-wrap: wrap;
     justify-content: center;
     gap: 4px;
-    width: 385px;
+    width: 380px;
 }
 
 .key {
@@ -291,7 +293,7 @@ html {
 }
 
 .letter {
-    width: 31px;
+    width: 30px;
     height: 55px;
     padding-right: 4px;
     padding-top: 5px;
@@ -323,7 +325,7 @@ html {
     display: flex;
     justify-content: space-between;
     padding: 5px 5px;
-    width: 385px;
+    width: 380px;
     font-family: 'Montserrat';
     font-weight: 400;
     color: white;
