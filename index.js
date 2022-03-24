@@ -182,3 +182,8 @@ function closeabout() {
 
 aboutbtn.addEventListener('click', showabout);
 aboutclose.addEventListener('click', closeabout);
+
+/*---solve problem---*/
+document.addEventListener('touchmove', function (event) {
+    if (event.scale !== 1) { event.preventDefault(); }
+  }, false);
