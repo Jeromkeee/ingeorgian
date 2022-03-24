@@ -10,25 +10,42 @@
 </head>
 <body>
     <header class="header">
-        <nav class="nav-text"></nav>
+        <button id="mode" class="mode-button">
+            <div class="tmbox">
+                <p class="text-mode">easy</p>
+                <p class="text-mode">режим</p>
+                <p class="text-mode">regular</p>
+            </div>
+        </button>
+        <button id="about" class="about-button">about</button>
+        <div class="about-box">
+            <div class="xmark">close</div>
+            <p class="about-text">Этот тренажер написан исключительно под автора, который волей случая оказался в начале марта 2022 года в Тбилиси и, как многие из его окружения, был совершенно не знаком с местным наречием. Конечно, в Грузии можно говорить на английском или даже русском, но есть подозрение, что мы здесь задержимся, а потому стоит подтянуть грузинский, чтобы располагать к себе людей.</p>
+            <p class="about-text">Самым сложным, на первый взгляд, видится алфавит. Чтобы не учить его по картинке, придуман такой тренажер.</p>
+        </div>
     </header>
     <div>
-        <button id="btn">gen</button>
-        <button id="btn2">correct</button>
         <p class="text-ru" id="input">Спасибо</p>
         <p class="text-ru" id="translit">мадлоба</p>
         <p class="text-ge" id="output"></p>
     </div>
 
     <div class="wordcontainer"></div>
-    
-    <div class="keyboard">
+
+    <div class="keyboardcontainer">
+        <div class="helpcontainer">
+            <p class="text-helper">показать транслитерацию</p>
+            <button id="helper" class="help-button">ъ</button>
+            <p class="help-bgr hideswitcher"></p>
+        </div>
+        <div class="keyboard"></div>
         <div class="keycontainer">
             <div class="key backspace" id="delAll">deleteAll</div>
-            <div class="key spacekey">space</div>
+            <div class="key spacekey" id="gen">next</div>
             <div class="key backspace" id="backspace">backspase</div>
         </div>
     </div>
+    
     <script type="module" src="./index.js"></script>
 </body>
 </html>

@@ -5,6 +5,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow: hidden;
 }
 
 * {
@@ -28,9 +29,223 @@ html {
 }
 /*---FONTS---*/
 
+/*---header---*/
 .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px;
     height: 100px;
 }
+
+.mode-button {
+    overflow: hidden;
+    padding: 0 10px;
+    width: 130px;
+    height: 50px;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #cccccc;
+}
+
+.mode-button:active {
+    background-color: #afafaf;
+    transform: translate(0, 2px);
+    transition: 0.1;
+}
+
+.about-button {
+    font-family: 'Montserrat';
+    font-size: 25px;
+    text-align: center;
+    color: #3a3a27;
+    font-weight: 600;
+    padding: 0 10px;
+    width: 130px;
+    height: 50px;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #cccccc;
+}
+
+.about-button:active {
+    background-color: #afafaf;
+    transform: translate(0, 2px);
+    transition: 0.1;
+}
+
+.tmbox {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.tmbox.easy {
+    animation-duration: 1s;
+    animation-name: easy;
+}
+
+@keyframes easy {
+    0% { transform: translateX(0px) }
+    10% { transform: translateX(-50px) }
+    20% { transform: translateX(-150px) }
+    80% { transform: translateX(-150px) }
+    90% { transform: translateX(-50px) }
+    100% { transform: translateX(0px) }
+}
+
+.tmbox.regular {
+    animation-duration: 1s;
+    animation-name: regular;
+}
+
+@keyframes regular {
+    0% { transform: translateX(0px) }
+    10% { transform: translateX(30px) }
+    20% { transform: translateX(150px) }
+    80% { transform: translateX(150px) }
+    90% { transform: translateX(30px) }
+    100% { transform: translateX(0px) }
+}
+
+.text-mode {
+    font-family: 'Montserrat';
+    font-size: 25px;
+    text-align: center;
+    color: #3a3a27;
+    font-weight: 600;
+    min-width: 110px;
+}
+.about-box {
+    font-family: 'Montserrat';
+    color: #3a3a27;
+    font-weight: 600;
+    position: absolute;
+    left: 100vw;
+    top: 0px;
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    padding: 10px 40px 100px 40px;
+}
+
+.about-box.active {
+    animation-duration: .3s;
+    animation-name: slidemenu;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slidemenu {
+    0% { left: 100vw }
+    100% { left: 0px }
+}
+
+.about-text {
+    margin: 0 auto;
+    padding: 10px 0;
+    font-size: 18px;
+    max-width: 650px;
+}
+
+.xmark {
+    margin: 0 auto;
+    padding: 20px 0 10vh 0px;
+    max-width: 650px;
+    font-size: 25px;
+    text-align: end;
+    cursor: pointer;
+
+  }
+
+/*---header---*/
+
+.keyboardcontainer {
+    margin: 0 auto;
+    width: 670px;
+}
+
+/*---helpcontainer---*/
+.helpcontainer {
+    position: relative;
+    display: flex;
+    justify-content: end;
+    padding: 20px 40px;
+    width: 670px;
+    height: 120px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    gap: 10px;
+}
+
+.help-button {
+    font-size: 32px;
+    color: #3a3a27;
+    width: 60px;
+    height: 60px;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    background-color: #e8e9b9;
+    transition: .3s;
+}
+
+.help-bgr {
+    position: absolute;
+    z-index: -1;
+    background-color: #dcddb4;
+    right: 38px;
+    width: 60px;
+    height: 60px;
+    border: 0;
+    border-radius: 30px;
+    animation: 1.5s linear 0s infinite normal rotate;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg) }
+    40% {
+        transform: rotate(300deg);
+        width: 65px;
+        }
+    70% {
+        transform: rotate(600deg);
+        width: 62px;
+        }
+    100% { transform: rotate(900deg) }
+  }
+
+.help-button:hover {
+    background-color: #dfe079;
+}
+
+.help-button.active {
+    transition: .2s;
+    animation-duration: 2.1s;
+    animation-name: showtranslit;
+}
+
+  @keyframes showtranslit {
+    0% { background-color: #dfe079; }
+    8% { transform: translate(1px, 1px) }
+    16% { transform: translate(0px, 0px) }
+    60% { background-color: #dfe079; }
+    100% { background-color: #e8e9b9 }
+  }
+
+.text-helper {
+    font-size: 27px;
+    color: #3a3a27;
+    line-height: 60px;
+    width: 400px;
+    height: 60px;
+}
+
+.hideswitcher {
+    display: none;
+}
+/*---helpcontainer---*/
+
 
 .text-ru {
     font-family: 'Montserrat';
@@ -46,7 +261,6 @@ html {
 }
 
 .keyboard {
-    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -63,21 +277,26 @@ html {
 
 .key:hover {
     background-color: #235a74;
-    transition: .3s;
+    transition: .1s;
+}
+
+.key:active {
+    background-color: #235a74;
+    transform: translate(0, 3px);
 }
 
 .letter {
     width: 52px;
     height: 85px;
     padding-right: 6px;
-    padding-top: 3px;
+    padding-top: 5px;
 }
 
 .keyGe {
     font-family: 'NotoSerifGeorgian';
     color: white;
     font-size: 45px;
-    line-height: 50px;
+    line-height: 45px;
     text-align: center;
 }
 
@@ -87,12 +306,18 @@ html {
     color: #d9db50;
     font-size: 25px;
     text-align: right;
+    transition: .5s;
+}
+
+.showRu {
+    transition: .5s;
+    color: #d9db5000;
 }
 
 .keycontainer {
     display: flex;
     justify-content: space-between;
-    padding: 0 10px;
+    padding: 10px 10px;
     width: 670px;
     font-family: 'Montserrat';
     font-weight: 400;
@@ -116,7 +341,7 @@ html {
 
 .wordcontainer {
     height: 120px;
-    margin: 30px auto 100px auto;
+    margin: 30px auto 50px auto;
     display: flex;
     justify-content: center;
     gap: 12px;

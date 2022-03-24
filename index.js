@@ -2,9 +2,11 @@
 
 import alphabet from './alphabet.js';
 
-const keyboard = document.querySelector('.keycontainer')
+const keyboard = document.querySelector('.keyboard');
+let mode = 'easy';
 
 function generateboard() {
+    if (mode === 'easy') switcherelem.forEach(elem => elem.classList.add('hideswitcher'));
     let num = Object.values(alphabet).length;
     for (let i = 0; i < num; i++) {
         let letterGe = Object.keys(alphabet)[i];
@@ -14,8 +16,9 @@ function generateboard() {
         const keyletterRu = document.createElement('p');
         keydiv.classList.add('key', 'letter');
         keyletterGe.classList.add('keyGe');
-        keyletterRu.classList.add('keyRu');
-        keyboard.before(keydiv);
+        if (mode === 'easy') keyletterRu.classList.add('keyRu');
+        if (mode === 'regular') keyletterRu.classList.add('keyRu', 'showRu');
+        keyboard.append(keydiv);
         keydiv.append(keyletterGe);
         keydiv.append(keyletterRu);
         keyletterGe.textContent = letterGe;
@@ -58,8 +61,7 @@ window.addEventListener('load', getWords);
 
 /*---clearform---*/
 
-const btton = document.getElementById('btn')
-const btton2 = document.getElementById('btn2')
+const btton = document.getElementById('gen')
 
 function regenform() {
     while (wordboxes.firstChild) wordboxes.removeChild(wordboxes.firstChild)
@@ -68,19 +70,15 @@ function regenform() {
 }
 
 btton.addEventListener('click', regenform);
-btton2.addEventListener('click', srsr);
-
-function srsr() {
-}
 
 /*---typing---*/
 
-const letters = document.querySelector('.keyboard');
 const backspace = document.getElementById('backspace');
+const delall = document.getElementById('delAll');
 let currentletter = 1;
 
 function letterType(event) {
-    let ltr = event.target.closest('.keyGe').textContent;
+    let ltr = event.target.closest('.letter').querySelector('.keyGe').textContent;
     if (currentletter < wordGe.length+1) {
         document.getElementById(`letr${currentletter}`).value = ltr;
         currentletter++
@@ -98,13 +96,18 @@ function deleteletter() {
     }
 }
 
-function deleteletter2(event) {
+function deleteletterkey(event) {
     if (event.code == 'Backspace') deleteletter();
 }
 
-    letters.addEventListener('click', letterType);
+function clearall() {
+    while (currentletter > 1) deleteletter();
+}
+
+    keyboard.addEventListener('click', letterType);
     backspace.addEventListener('click', deleteletter);
-    document.addEventListener('keydown', deleteletter2);
+    delall.addEventListener('click', clearall);
+    document.addEventListener('keydown', deleteletterkey);
 
 
 /*---checking---*/
@@ -122,3 +125,60 @@ function checkResult() {
         setTimeout(regenform, 900)
     }
 }
+
+/*---mode switchers---*/
+
+const switcherelem = document.querySelectorAll('.help-button, .text-helper');
+const switcher = document.getElementById('helper');
+const modebtn = document.getElementById('mode');
+const tmbox = document.querySelector('.tmbox');
+
+function hidetranslit() {
+    const transltRu = document.querySelectorAll('.keyRu');
+    transltRu.forEach(elem => elem.classList.add('showRu'));
+    switcher.classList.remove('active');
+    document.querySelector('.help-bgr').classList.add('hideswitcher');
+}
+
+function showtranslit() {
+    const transltRu = document.querySelectorAll('.keyRu');
+    transltRu.forEach(elem => elem.classList.remove('showRu'));
+    switcher.classList.add('active');
+    document.querySelector('.help-bgr').classList.remove('hideswitcher');
+    setTimeout(hidetranslit, 1500)
+}
+
+function switchmode () {
+    const transltRu = document.querySelectorAll('.keyRu');
+    if (mode === 'easy') {
+        mode = 'regular';
+        transltRu.forEach(elem => elem.classList.add('showRu'));
+        switcherelem.forEach(elem => elem.classList.remove('hideswitcher'));
+        tmbox.classList.add('easy')
+        setTimeout(() => tmbox.classList.remove('easy'), 1000)
+    } else {
+        mode = 'easy';
+        transltRu.forEach(elem => elem.classList.remove('showRu'));
+        switcherelem.forEach(elem => elem.classList.add('hideswitcher'));
+        tmbox.classList.add('regular')
+        setTimeout(() => tmbox.classList.remove('regular'), 1000)
+    }
+}
+
+modebtn.addEventListener('click', switchmode);
+switcher.addEventListener('click', showtranslit);
+
+/*---about---*/
+
+const aboutbtn = document.getElementById('about');
+const aboutclose = document.querySelector('.xmark');
+
+function showabout() {
+    document.querySelector('.about-box').classList.add('active')
+}
+function closeabout() {
+    document.querySelector('.about-box').classList.remove('active')
+}
+
+aboutbtn.addEventListener('click', showabout);
+aboutclose.addEventListener('click', closeabout);
