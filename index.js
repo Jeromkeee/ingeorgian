@@ -137,14 +137,14 @@ function hidetranslit() {
     const transltRu = document.querySelectorAll('.keyRu');
     transltRu.forEach(elem => elem.classList.add('showRu'));
     switcher.classList.remove('active');
-    //document.querySelector('.help-bgr').classList.add('hideswitcher');
+    document.querySelector('.help-bgr').classList.add('hideswitcher');
 }
 
 function showtranslit() {
     const transltRu = document.querySelectorAll('.keyRu');
     transltRu.forEach(elem => elem.classList.remove('showRu'));
     switcher.classList.add('active');
-    //document.querySelector('.help-bgr').classList.remove('hideswitcher');
+    document.querySelector('.help-bgr').classList.remove('hideswitcher');
     setTimeout(hidetranslit, 1500)
 }
 
