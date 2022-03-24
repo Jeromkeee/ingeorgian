@@ -6,6 +6,7 @@
 html {
     scroll-behavior: smooth;
     overflow: hidden;
+    height: 70vh;
 }
 
 * {
@@ -34,8 +35,8 @@ html {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    padding: 40px 10px 10px 10px;
-    height: 120px;
+    padding: 20px 20px 10px 20px;
+    height: 80px;
     margin-bottom: 20px;
     max-width: 400px;
 }
@@ -157,7 +158,7 @@ html {
 
 .xmark {
     margin: 0 auto;
-    padding: 10px 0 10vh 0px;
+    padding: 15px 0 10vh 0px;
     max-width: 650px;
     font-size: 20px;
     text-align: end;
@@ -169,7 +170,7 @@ html {
 
 .keyboardcontainer {
     margin: 0 auto;
-    width: 380px;
+    width: 370px;
 }
 
 /*---helpcontainer---*/
@@ -177,16 +178,16 @@ html {
     position: relative;
     display: flex;
     justify-content: end;
-    padding: 10px 20px;
-    width: 380px;
-    height: 80px;
+    padding: 10px 15px;
+    width: 370px;
+    height: 70px;
     font-family: 'Montserrat';
     font-weight: 600;
     gap: 5px;
 }
 
 .help-button {
-    font-size: 25px;
+    font-size: 22px;
     color: #3a3a27;
     width: 40px;
     height: 40px;
@@ -201,7 +202,7 @@ html {
     position: absolute;
     z-index: -1;
     background-color: #dcddb4;
-    right: 18px;
+    right: 13px;
     width: 40px;
     height: 40px;
     border: 0;
@@ -241,7 +242,7 @@ html {
   }
 
 .text-helper {
-    font-size: 18px;
+    font-size: 17px;
     color: #3a3a27;
     line-height: 40px;
     width: 250px;
@@ -272,7 +273,7 @@ html {
     flex-wrap: wrap;
     justify-content: center;
     gap: 4px;
-    width: 380px;
+    width: 370px;
 }
 
 .key {
@@ -293,7 +294,7 @@ html {
 }
 
 .letter {
-    width: 30px;
+    width: 29px;
     height: 55px;
     padding-right: 4px;
     padding-top: 5px;
@@ -302,8 +303,8 @@ html {
 .keyGe {
     font-family: var(--font2);
     color: white;
-    font-size: 28px;
-    line-height: 28px;
+    font-size: 27px;
+    line-height: 27px;
     text-align: center;
 }
 
@@ -311,7 +312,7 @@ html {
     font-family: 'Montserrat';
     font-weight: 600;
     color: #d9db50;
-    font-size: 17px;
+    font-size: 16px;
     text-align: right;
     transition: .5s;
 }
@@ -325,7 +326,7 @@ html {
     display: flex;
     justify-content: space-between;
     padding: 5px 5px;
-    width: 380px;
+    width: 370px;
     font-family: 'Montserrat';
     font-weight: 400;
     color: white;
@@ -348,7 +349,7 @@ html {
 
 .wordcontainer {
     height: 70px;
-    margin: 40px auto 50px auto;
+    margin: 30px auto 20px auto;
     display: flex;
     justify-content: center;
     gap: 6px;
@@ -356,10 +357,10 @@ html {
 
 .wordletter {
     font-family: var(--font2);
-    font-size: 40px;
+    font-size: 38px;
     text-align: center;
-    width: 37px;
-    height: 70px;
+    width: 40px;
+    height: 68px;
     border: 0;
     padding-bottom: 10px;
     border-radius: 3px;
