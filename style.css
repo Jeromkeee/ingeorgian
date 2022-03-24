@@ -1,6 +1,6 @@
 :root {
-    --color-main: rgb(125, 179, 90);
-    --color-play: rgb(230, 233, 171);
+    --font1: 'NotoSansGeorgian';
+    --font2: 'NotoSerifGeorgian';
 }
 
 html {
@@ -31,17 +31,20 @@ html {
 
 /*---header---*/
 .header {
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    padding: 10px 30px;
-    height: 100px;
+    padding: 10px 10px;
+    height: 70px;
+    margin-bottom: 80px;
+    max-width: 400px;
 }
 
 .mode-button {
     overflow: hidden;
     padding: 0 10px;
-    width: 130px;
-    height: 50px;
+    width: 100px;
+    height: 30px;
     border: 0;
     border-radius: 10px;
     cursor: pointer;
@@ -56,17 +59,26 @@ html {
 
 .about-button {
     font-family: 'Montserrat';
-    font-size: 25px;
+    font-size: 18px;
     text-align: center;
     color: #3a3a27;
     font-weight: 600;
     padding: 0 10px;
-    width: 130px;
-    height: 50px;
+    width: 100px;
+    height: 30px;
     border: 0;
     border-radius: 10px;
     cursor: pointer;
     background-color: #cccccc;
+}
+
+.text-mode {
+    font-family: 'Montserrat';
+    font-size: 18px;
+    text-align: center;
+    color: #3a3a27;
+    font-weight: 600;
+    min-width: 110px;
 }
 
 .about-button:active {
@@ -109,14 +121,6 @@ html {
     100% { transform: translateX(0px) }
 }
 
-.text-mode {
-    font-family: 'Montserrat';
-    font-size: 25px;
-    text-align: center;
-    color: #3a3a27;
-    font-weight: 600;
-    min-width: 110px;
-}
 .about-box {
     font-family: 'Montserrat';
     color: #3a3a27;
@@ -128,6 +132,7 @@ html {
     width: 100vw;
     height: 100vh;
     padding: 10px 40px 100px 40px;
+    z-index: 2;
 }
 
 .about-box.active {
@@ -143,16 +148,16 @@ html {
 
 .about-text {
     margin: 0 auto;
-    padding: 10px 0;
-    font-size: 18px;
+    padding: 5px 0;
+    font-size: 15px;
     max-width: 650px;
 }
 
 .xmark {
     margin: 0 auto;
-    padding: 20px 0 10vh 0px;
+    padding: 10px 0 10vh 0px;
     max-width: 650px;
-    font-size: 25px;
+    font-size: 20px;
     text-align: end;
     cursor: pointer;
 
@@ -162,7 +167,7 @@ html {
 
 .keyboardcontainer {
     margin: 0 auto;
-    width: 670px;
+    width: 385px;
 }
 
 /*---helpcontainer---*/
@@ -170,21 +175,21 @@ html {
     position: relative;
     display: flex;
     justify-content: end;
-    padding: 20px 40px;
-    width: 670px;
-    height: 120px;
+    padding: 10px 20px;
+    width: 385px;
+    height: 80px;
     font-family: 'Montserrat';
     font-weight: 600;
-    gap: 10px;
+    gap: 5px;
 }
 
 .help-button {
-    font-size: 32px;
+    font-size: 25px;
     color: #3a3a27;
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     border: 0;
-    border-radius: 30px;
+    border-radius: 20px;
     cursor: pointer;
     background-color: #e8e9b9;
     transition: .3s;
@@ -194,11 +199,11 @@ html {
     position: absolute;
     z-index: -1;
     background-color: #dcddb4;
-    right: 38px;
-    width: 60px;
-    height: 60px;
+    right: 18px;
+    width: 40px;
+    height: 40px;
     border: 0;
-    border-radius: 30px;
+    border-radius: 20px;
     animation: 1.5s linear 0s infinite normal rotate;
 }
 
@@ -206,11 +211,11 @@ html {
     0% { transform: rotate(0deg) }
     40% {
         transform: rotate(300deg);
-        width: 65px;
+        width: 44px;
         }
     70% {
         transform: rotate(600deg);
-        width: 62px;
+        width: 41px;
         }
     100% { transform: rotate(900deg) }
   }
@@ -234,11 +239,11 @@ html {
   }
 
 .text-helper {
-    font-size: 27px;
+    font-size: 18px;
     color: #3a3a27;
-    line-height: 60px;
-    width: 400px;
-    height: 60px;
+    line-height: 40px;
+    width: 250px;
+    height: 40px;
 }
 
 .hideswitcher {
@@ -249,14 +254,14 @@ html {
 
 .text-ru {
     font-family: 'Montserrat';
-    font-size: 60px;
-    margin-top: 30px;
+    font-size: 40px;
+    margin-top: 20px;
     text-align: center;
 }
 
 .text-ge {
-    font-family: 'NotoSerifGeorgian';
-    font-size: 70px;
+    font-family: var(--font2);
+    font-size: 45px;
     text-align: center;
 }
 
@@ -264,8 +269,8 @@ html {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 8px;
-    width: 670px;
+    gap: 4px;
+    width: 385px;
 }
 
 .key {
@@ -286,17 +291,17 @@ html {
 }
 
 .letter {
-    width: 52px;
-    height: 85px;
-    padding-right: 6px;
+    width: 31px;
+    height: 55px;
+    padding-right: 4px;
     padding-top: 5px;
 }
 
 .keyGe {
-    font-family: 'NotoSerifGeorgian';
+    font-family: var(--font2);
     color: white;
-    font-size: 45px;
-    line-height: 45px;
+    font-size: 28px;
+    line-height: 28px;
     text-align: center;
 }
 
@@ -304,7 +309,7 @@ html {
     font-family: 'Montserrat';
     font-weight: 600;
     color: #d9db50;
-    font-size: 25px;
+    font-size: 17px;
     text-align: right;
     transition: .5s;
 }
@@ -317,8 +322,8 @@ html {
 .keycontainer {
     display: flex;
     justify-content: space-between;
-    padding: 10px 10px;
-    width: 670px;
+    padding: 5px 5px;
+    width: 385px;
     font-family: 'Montserrat';
     font-weight: 400;
     color: white;
@@ -326,33 +331,33 @@ html {
 }
 
 .backspace {
-    font-size: 25px;
-    line-height: 45px;
-    width: 140px;
-    height: 50px;
+    font-size: 16px;
+    line-height: 30px;
+    width: 90px;
+    height: 30px;
 }
 
 .spacekey {
-    font-size: 35px;
-    line-height: 45px;
-    width: 285px;
-    height: 50px;
+    font-size: 22px;
+    line-height: 28px;
+    width: 135px;
+    height: 30px;
 }
 
 .wordcontainer {
-    height: 120px;
-    margin: 30px auto 50px auto;
+    height: 70px;
+    margin: 50px auto 100px auto;
     display: flex;
     justify-content: center;
-    gap: 12px;
+    gap: 6px;
 }
 
 .wordletter {
-    font-family: 'NotoSerifGeorgian';
-    font-size: 75px;
+    font-family: var(--font2);
+    font-size: 40px;
     text-align: center;
-    width: 85px;
-    height: 120px;
+    width: 37px;
+    height: 70px;
     border: 0;
     padding-bottom: 10px;
     border-radius: 3px;
