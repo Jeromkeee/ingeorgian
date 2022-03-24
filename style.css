@@ -198,7 +198,7 @@ html {
     transition: .3s;
 }
 
-.help-bgr {
+/*.help-bgr {
     position: absolute;
     z-index: -1;
     background-color: #dcddb4;
@@ -208,7 +208,7 @@ html {
     border: 0;
     border-radius: 20px;
     animation: 1.5s linear 0s infinite normal rotate;
-}
+}*/
 
 @keyframes rotate {
     0% { transform: rotate(0deg) }
@@ -242,10 +242,10 @@ html {
   }
 
 .text-helper {
-    font-size: 17px;
+    font-size: 18px;
     color: #3a3a27;
     line-height: 40px;
-    width: 290px;
+    width: 260px;
     height: 40px;
 }
 
