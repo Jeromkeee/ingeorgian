@@ -27,6 +27,7 @@ function generateboard() {
 }
 
 window.addEventListener('load', generateboard);
+window.screen.orientation.lock('portrait')
 
 /*---generate word---*/
 
