@@ -175,6 +175,7 @@ html {
 /*---helpcontainer---*/
 .helpcontainer {
     display: flex;
+    -webkit-justify-content: end;
     justify-content: end;
     padding: 10px 15px;
     width: calc(100vw - 10px);
