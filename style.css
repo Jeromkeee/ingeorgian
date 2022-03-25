@@ -1,6 +1,5 @@
 :root {
-    --font1: 'NotoSansGeorgian';
-    --font2: 'NotoSerifGeorgian';
+    --fontGe: 'NotoSerifGeorgian'; /*alternative is 'NotoSansGeorgian'*/
 }
 
 html {
@@ -94,12 +93,12 @@ html {
     gap: 40px;
 }
 
-.tmbox.easy {
+.tmbox.fromleft {
     animation-duration: 1s;
-    animation-name: easy;
+    animation-name: fromleft;
 }
 
-@keyframes easy {
+@keyframes fromleft {
     0% { transform: translateX(0px) }
     10% { transform: translateX(-50px) }
     20% { transform: translateX(-150px) }
@@ -108,12 +107,12 @@ html {
     100% { transform: translateX(0px) }
 }
 
-.tmbox.regular {
+.tmbox.fromright {
     animation-duration: 1s;
-    animation-name: regular;
+    animation-name: fromright;
 }
 
-@keyframes regular {
+@keyframes fromright {
     0% { transform: translateX(0px) }
     10% { transform: translateX(30px) }
     20% { transform: translateX(150px) }
@@ -170,7 +169,7 @@ html {
 
 .keyboardcontainer {
     margin: 0 auto;
-    width: 370px;
+    width: calc(100vw - 10px);
 }
 
 /*---helpcontainer---*/
@@ -179,7 +178,7 @@ html {
     display: flex;
     justify-content: end;
     padding: 10px 15px;
-    width: 370px;
+    width: calc(100vw - 10px);
     height: 70px;
     font-family: 'Montserrat';
     font-weight: 600;
@@ -187,68 +186,33 @@ html {
 }
 
 .help-button {
-    font-size: 22px;
+    font-size: 20px;
+    padding: 0 13px;
+    text-align: end;
     color: #3a3a27;
-    width: 40px;
-    height: 40px;
+    width: 200px;
+    height: 30px;
     border: 0;
-    border-radius: 20px;
+    border-radius: 10px;
     cursor: pointer;
-    background-color: #e8e9b9;
+    background-color: #cccccc;
     transition: .3s;
-}
-
-.help-bgr {
-    position: absolute;
-    z-index: -1;
-    background-color: #dcddb4;
-    right: 13px;
-    width: 40px;
-    height: 40px;
-    border: 0;
-    border-radius: 20px;
-    animation: 1.5s linear 0s infinite normal rotate;
-}
-
-@keyframes rotate {
-    0% { transform: rotate(0deg) }
-    40% {
-        transform: rotate(300deg);
-        width: 44px;
-        }
-    70% {
-        transform: rotate(600deg);
-        width: 41px;
-        }
-    100% { transform: rotate(900deg) }
-  }
-
-.help-button:hover {
-    background-color: #dfe079;
 }
 
 .help-button.active {
     transition: .2s;
-    animation-duration: 2.1s;
+    animation-duration: 1.8s;
+    animation-timing-function: linear;
     animation-name: showtranslit;
 }
 
   @keyframes showtranslit {
     0% { background-color: #dfe079; }
-    8% { transform: translate(1px, 1px) }
-    16% { transform: translate(0px, 0px) }
-    60% { background-color: #dfe079; }
+    12% { width: 350px; transform: translateX(0px) }
+    17% { width: 330px; transform: translateX(-20px) }
+    22% { width: 350px; transform: translateX(0px) }
     100% { background-color: #e8e9b9 }
   }
-
-.text-helper {
-    font-size: 17px;
-    text-align: end;
-    color: #3a3a27;
-    line-height: 40px;
-    width: 280px;
-    height: 40px;
-}
 
 .hideswitcher {
     display: none;
@@ -264,7 +228,7 @@ html {
 }
 
 .text-ge {
-    font-family: var(--font2);
+    font-family: var(--fontGe);
     font-size: 45px;
     text-align: center;
 }
@@ -274,7 +238,7 @@ html {
     flex-wrap: wrap;
     justify-content: center;
     gap: 4px;
-    width: 370px;
+    width: calc(100vw - 10px);
 }
 
 .key {
@@ -284,25 +248,19 @@ html {
     background-color: #377491;
 }
 
-.key:hover {
-    background-color: #235a74;
-    transition: .1s;
-}
-
 .key:active {
     background-color: #235a74;
     transform: translate(0, 3px);
 }
 
 .letter {
-    width: 29px;
+    width: calc(9vw - 5px);
     height: 55px;
-    padding-right: 4px;
-    padding-top: 5px;
 }
 
 .keyGe {
-    font-family: var(--font2);
+    margin-top: 6px;
+    font-family: var(--fontGe);
     color: white;
     font-size: 27px;
     line-height: 27px;
@@ -315,6 +273,8 @@ html {
     color: #d9db50;
     font-size: 16px;
     text-align: right;
+    padding-right: 3px;
+    padding-top: 2px;
     transition: .5s;
 }
 
@@ -325,9 +285,10 @@ html {
 
 .keycontainer {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 20px;
     padding: 5px 5px;
-    width: 370px;
+    width: calc(100vw - 10px);
     font-family: 'Montserrat';
     font-weight: 400;
     color: white;
@@ -353,15 +314,16 @@ html {
     margin: 30px auto 20px auto;
     display: flex;
     justify-content: center;
-    gap: 6px;
+    gap: 5px;
+    padding: 0 10px;
 }
 
 .wordletter {
-    font-family: var(--font2);
+    font-family: var(--fontGe);
     font-size: 38px;
     text-align: center;
-    width: 40px;
-    height: 68px;
+    max-width: 40px;
+    max-height: 60px;
     border: 0;
     padding-bottom: 10px;
     border-radius: 3px;
@@ -371,11 +333,6 @@ html {
 .wordletter:active, :focus {
     outline: 0;
     outline-offset: 0;
-}
-
-.wordletter:hover {
-    background-color: #d4d5a0;
-    transition: .3s;
 }
 
 .wrongletter {
