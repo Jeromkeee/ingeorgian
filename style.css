@@ -152,12 +152,13 @@ html {
     margin: 0 auto;
     padding: 5px 0;
     font-size: 14px;
+    font-weight: 800;
     max-width: 650px;
 }
 
 .xmark {
     margin: 0 auto;
-    padding: 15px 0 10vh 0px;
+    padding: 15px 0 7vh 0px;
     max-width: 650px;
     font-size: 20px;
     text-align: end;
