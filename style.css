@@ -151,7 +151,7 @@ html {
 .about-text {
     margin: 0 auto;
     padding: 5px 0;
-    font-size: 15px;
+    font-size: 14px;
     max-width: 650px;
 }
 
@@ -174,7 +174,6 @@ html {
 
 /*---helpcontainer---*/
 .helpcontainer {
-    position: relative;
     display: flex;
     justify-content: end;
     padding: 10px 15px;
