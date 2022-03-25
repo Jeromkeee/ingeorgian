@@ -54,7 +54,10 @@ function getOne(data, dataleng) {
         wordbox.maxLength = 1;
         wordbox.type = "text";
         wordbox.id = `letr${i+1}`;
-        if (wordGe.length > 7) wordbox.style.width = `${Width/wordGe.length - 6}px`;
+        if (wordGe.length > 8) {
+            wordbox.style.width = `${Width/wordGe.length - 6}px`;
+            wordbox.style.fontSize = `${28 + Width/wordGe.length**1.8}px`;
+        }
         wordboxes.append(wordbox);
     }
 }
