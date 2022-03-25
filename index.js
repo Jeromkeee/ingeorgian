@@ -6,7 +6,7 @@ const keyboard = document.querySelector('.keyboard');
 let mode = 'easy';
 
 function generateboard() {
-    if (mode === 'easy') switcherelem.forEach(elem => elem.classList.add('hideswitcher'));
+    if (mode === 'easy') switcher.classList.add('hideswitcher');
     let num = Object.values(alphabet).length;
     for (let i = 0; i < num; i++) {
         let letterGe = Object.keys(alphabet)[i];
@@ -27,7 +27,6 @@ function generateboard() {
 }
 
 window.addEventListener('load', generateboard);
-window.screen.orientation.lock('portrait')
 
 /*---generate word---*/
 
@@ -42,6 +41,7 @@ const wordboxes = document.querySelector('.wordcontainer');
 let wordGe = '';
 
 function getOne(data, dataleng) {
+    let Width = window.innerWidth;
     let obj = data[Math.floor(Math.random() * dataleng)];
     let wordRu = Object.keys(obj);
     document.getElementById('input').textContent = wordRu;
@@ -54,6 +54,7 @@ function getOne(data, dataleng) {
         wordbox.maxLength = 1;
         wordbox.type = "text";
         wordbox.id = `letr${i+1}`;
+        if (wordGe.length > 7) wordbox.style.width = `${Width/wordGe.length - 6}px`;
         wordboxes.append(wordbox);
     }
 }
@@ -127,46 +128,70 @@ function checkResult() {
     }
 }
 
-/*---mode switchers---*/
+/*---mode switcher---*/
 
-const switcherelem = document.querySelectorAll('.help-button, .text-helper');
-const switcher = document.getElementById('helper');
-const modebtn = document.getElementById('mode');
-const tmbox = document.querySelector('.tmbox');
-
-function hidetranslit() {
-    const transltRu = document.querySelectorAll('.keyRu');
-    transltRu.forEach(elem => elem.classList.add('showRu'));
-    switcher.classList.remove('active');
-    document.querySelector('.help-bgr').classList.add('hideswitcher');
-}
-
-function showtranslit() {
-    const transltRu = document.querySelectorAll('.keyRu');
-    transltRu.forEach(elem => elem.classList.remove('showRu'));
-    switcher.classList.add('active');
-    document.querySelector('.help-bgr').classList.remove('hideswitcher');
-    setTimeout(hidetranslit, 1500)
-}
+const modebtn = document.getElementById('modebtn');
+const modebox = document.getElementById('modebox');
 
 function switchmode () {
     const transltRu = document.querySelectorAll('.keyRu');
     if (mode === 'easy') {
         mode = 'regular';
         transltRu.forEach(elem => elem.classList.add('showRu'));
-        switcherelem.forEach(elem => elem.classList.remove('hideswitcher'));
-        tmbox.classList.add('easy')
-        setTimeout(() => tmbox.classList.remove('easy'), 1000)
+        switcher.classList.remove('hideswitcher');
+        modebox.classList.add('fromleft')
+        setTimeout(() => modebox.classList.remove('fromleft'), 1000)
     } else {
         mode = 'easy';
         transltRu.forEach(elem => elem.classList.remove('showRu'));
-        switcherelem.forEach(elem => elem.classList.add('hideswitcher'));
-        tmbox.classList.add('regular')
-        setTimeout(() => tmbox.classList.remove('regular'), 1000)
+        switcher.classList.add('hideswitcher');
+        modebox.classList.add('fromright')
+        setTimeout(() => modebox.classList.remove('fromright'), 1000)
     }
 }
 
 modebtn.addEventListener('click', switchmode);
+
+
+/*---font switcher---*/
+
+const fontbtn = document.getElementById('fontbtn');
+const fontbox = document.getElementById('fontbox');
+let font = 'Serif';
+
+function switchfont () {
+    if (font === 'Serif') {
+        font = 'Sans';
+        document.documentElement.style.setProperty('--fontGe', 'NotoSansGeorgian');
+        fontbox.classList.add('fromleft')
+        setTimeout(() => fontbox.classList.remove('fromleft'), 1000)
+    } else {
+        font = 'Serif';
+        document.documentElement.style.setProperty('--fontGe', 'NotoSerifGeorgian');
+        fontbox.classList.add('fromright')
+        setTimeout(() => fontbox.classList.remove('fromright'), 1000)
+    }
+}
+
+fontbtn.addEventListener('click', switchfont);
+
+/*---showtranslit---*/
+
+const switcher = document.getElementById('helper');
+
+function hidetranslit() {
+    const transltRu = document.querySelectorAll('.keyRu');
+    transltRu.forEach(elem => elem.classList.add('showRu'));
+    switcher.classList.remove('active');
+}
+
+function showtranslit() {
+    const transltRu = document.querySelectorAll('.keyRu');
+    transltRu.forEach(elem => elem.classList.remove('showRu'));
+    switcher.classList.add('active');
+    setTimeout(hidetranslit, 1800)
+}
+
 switcher.addEventListener('click', showtranslit);
 
 /*---about---*/
@@ -184,7 +209,7 @@ function closeabout() {
 aboutbtn.addEventListener('click', showabout);
 aboutclose.addEventListener('click', closeabout);
 
-/*---solve problem---*/
+/*---solve scale problem on phone---*/
 document.addEventListener('touchmove', function (event) {
     if (event.scale !== 1) { event.preventDefault(); }
   }, false);

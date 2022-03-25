@@ -10,11 +10,18 @@
 </head>
 <body>
     <header class="header">
-        <button id="mode" class="mode-button">
-            <div class="tmbox">
-                <p class="text-mode">easy</p>
+        <button id="modebtn" class="mode-button">
+            <div class="tmbox" id="modebox">
+                <p class="text-mode">Sans</p>
                 <p class="text-mode">режим</p>
                 <p class="text-mode">regular</p>
+            </div>
+        </button>
+        <button id="fontbtn" class="mode-button">
+            <div class="tmbox" id="fontbox">
+                <p class="text-mode">SansGe</p>
+                <p class="text-mode">шрифт</p>
+                <p class="text-mode">SerifGe</p>
             </div>
         </button>
         <button id="about" class="about-button">about</button>
@@ -33,9 +40,7 @@
 
     <div class="keyboardcontainer">
         <div class="helpcontainer">
-            <p class="text-helper">показать транслит</p>
-            <button id="helper" class="help-button">ъ</button>
-            <p class="help-bgr hideswitcher"></p>
+            <button id="helper" class="help-button">показать транслит</button>
         </div>
         <div class="keyboard"></div>
         <div class="keycontainer">
