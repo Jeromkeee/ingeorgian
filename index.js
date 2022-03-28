@@ -4,12 +4,22 @@ import alphabet from './alphabet.js';
 
 const keyboard = document.querySelector('.keyboard');
 let mode = 'easy';
+let keymode = 'random';
+let num = Object.values(alphabet).length;
+let RandomArr = [];
+for (let i = 0; i < num; i++) RandomArr.push(i)
 
 function generateboard() {
     if (mode === 'easy') switcher.classList.add('hideswitcher');
-    let num = Object.values(alphabet).length;
+    if (keymode === 'random') {
+        for (let i = 0; i < num; i++) {
+            let randel = Math.floor(Math.random() * (num-i));
+            RandomArr.push(RandomArr[randel]);
+            RandomArr.splice(randel, 1);
+        }
+    }
     for (let i = 0; i < num; i++) {
-        let letterGe = Object.keys(alphabet)[i];
+        let letterGe = Object.keys(alphabet)[RandomArr[i]];
         let letterRu = alphabet[letterGe];
         const keydiv = document.createElement('div');
         const keyletterGe = document.createElement('p');
@@ -72,6 +82,10 @@ function regenform() {
     while (wordboxes.firstChild) wordboxes.removeChild(wordboxes.firstChild)
     currentletter = 1
     getWords()
+    if (keymode === 'random') {
+        while (keyboard.firstChild) keyboard.removeChild(keyboard.firstChild)
+        generateboard()
+    }
 }
 
 btton.addEventListener('click', regenform);
@@ -155,7 +169,6 @@ function switchmode () {
 
 modebtn.addEventListener('click', switchmode);
 
-
 /*---font switcher---*/
 
 const fontbtn = document.getElementById('fontbtn');
@@ -177,6 +190,25 @@ function switchfont () {
 }
 
 fontbtn.addEventListener('click', switchfont);
+
+/*---keybd switcher---*/
+
+const keybdbtn = document.getElementById('keybdbtn');
+const keybdbox = document.getElementById('keybdbox');
+
+function switchkeybd () {
+    if (keymode === 'stable') {
+        keymode = 'random';
+        keybdbox.classList.add('fromleft')
+        setTimeout(() => keybdbox.classList.remove('fromleft'), 1000)
+    } else {
+        keymode = 'stable';
+        keybdbox.classList.add('fromright')
+        setTimeout(() => keybdbox.classList.remove('fromright'), 1000)
+    }
+}
+
+keybdbtn.addEventListener('click', switchkeybd);
 
 /*---showtranslit---*/
 

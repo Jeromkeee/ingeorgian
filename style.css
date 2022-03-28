@@ -20,6 +20,10 @@ html {
     src: url(./fonts/Montserrat/static/Montserrat-Light.ttf);
 }
 @font-face {
+    font-family: Roboto;
+    src: url(./fonts/Roboto/Roboto-Medium.ttf);
+}
+@font-face {
     font-family: NotoSansGeorgian;
     src: url(./fonts/Noto_Sans_Georgian/static/NotoSansGeorgian/NotoSansGeorgian-Light.ttf);
 }
@@ -34,7 +38,7 @@ html {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    padding: 20px 20px 10px 20px;
+    padding: 20px 10px 10px 10px;
     height: 80px;
     margin-bottom: 20px;
     max-width: 400px;
@@ -43,8 +47,8 @@ html {
 .mode-button {
     overflow: hidden;
     padding: 0 10px;
-    width: 100px;
-    height: 30px;
+    width: 80px;
+    height: 28px;
     border: 0;
     border-radius: 10px;
     cursor: pointer;
@@ -59,13 +63,13 @@ html {
 
 .about-button {
     font-family: 'Montserrat';
-    font-size: 18px;
+    font-size: 16px;
     text-align: center;
     color: #3a3a27;
     font-weight: 600;
     padding: 0 10px;
-    width: 100px;
-    height: 30px;
+    width: 80px;
+    height: 28px;
     border: 0;
     border-radius: 10px;
     cursor: pointer;
@@ -74,7 +78,7 @@ html {
 
 .text-mode {
     font-family: 'Montserrat';
-    font-size: 18px;
+    font-size: 16px;
     text-align: center;
     color: #3a3a27;
     font-weight: 600;
@@ -151,7 +155,7 @@ html {
 .about-text {
     margin: 0 auto;
     padding: 5px 0;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 800;
     max-width: 650px;
 }
@@ -179,6 +183,8 @@ html {
     flex-direction: row-reverse;
     padding: 10px 15px;
     width: calc(100vw - 10px);
+    max-width: 450px;
+    margin: 0 auto;
     height: 70px;
     font-family: 'Montserrat';
     font-weight: 600;
@@ -203,14 +209,27 @@ html {
     transition: .2s;
     animation-duration: 1.8s;
     animation-timing-function: linear;
-    animation-name: showtranslit;
+    animation-name: showtranslit2;
 }
 
-  @keyframes showtranslit {
+@media (max-width: 450px) {
+    .help-button.active {
+        animation-name: showtranslit1;
+    }
+}
+
+  @keyframes showtranslit2 {
     0% { background-color: #dfe079; }
-    12% { width: 350px; transform: translateX(0px) }
-    17% { width: 330px; transform: translateX(-20px) }
-    22% { width: 350px; transform: translateX(0px) }
+    12% { width: 420px; transform: translateX(0px) }
+    17% { width: 390px; transform: translateX(-30px) }
+    22% { width: 420px; transform: translateX(0px) }
+    100% { background-color: #e8e9b9 }
+  }
+  @keyframes showtranslit1 {
+    0% { background-color: #dfe079; }
+    12% { width: calc(89vw); transform: translateX(0px) }
+    17% { width: calc(89vw - 20px); transform: translateX(-20px) }
+    22% { width: calc(89vw); transform: translateX(0px) }
     100% { background-color: #e8e9b9 }
   }
 
@@ -239,6 +258,8 @@ html {
     justify-content: center;
     gap: 4px;
     width: calc(100vw - 10px);
+    max-width: 450px;
+    margin: 0 auto;
 }
 
 .key {
@@ -255,6 +276,7 @@ html {
 
 .letter {
     width: calc(9vw - 5px);
+    max-width: 37px;
     height: 55px;
 }
 
