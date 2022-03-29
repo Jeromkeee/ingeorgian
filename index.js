@@ -4,7 +4,7 @@ import alphabet from './alphabet.js';
 
 const keyboard = document.querySelector('.keyboard');
 let mode = 'easy';
-let keymode = 'random';
+let keymode = 'stable';
 let num = Object.values(alphabet).length;
 let RandomArr = [];
 for (let i = 0; i < num; i++) RandomArr.push(i)
@@ -232,7 +232,7 @@ switcher.addEventListener('click', showtranslit);
 /*---about---*/
 
 const aboutbtn = document.getElementById('about');
-const aboutclose = document.querySelector('.xmark');
+const aboutclose = document.getElementById('Xabout');
 
 function showabout() {
     document.querySelector('.about-box').classList.add('active')
@@ -243,6 +243,21 @@ function closeabout() {
 
 aboutbtn.addEventListener('click', showabout);
 aboutclose.addEventListener('click', closeabout);
+
+/*---settings---*/
+
+const settingsbtn = document.getElementById('settings');
+const settingsclose = document.getElementById('Xsettings');
+
+function showsettings() {
+    document.querySelector('.settings-box').classList.add('active')
+}
+function closesettings() {
+    document.querySelector('.settings-box').classList.remove('active')
+}
+
+settingsbtn.addEventListener('click', showsettings);
+settingsclose.addEventListener('click', closesettings);
 
 /*---solve scale problem on phone---*/
 document.addEventListener('touchmove', function (event) {
