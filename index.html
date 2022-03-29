@@ -10,26 +10,51 @@
 </head>
 <body>
     <header class="header">
-        <button id="modebtn" class="mode-button">
-            <div class="tmbox" id="modebox">
-                <p class="text-mode">easy</p>
-                <p class="text-mode">режим</p>
-                <p class="text-mode">regular</p>
+        <button id="settings" class="main-button">settings</button>
+        <div class="mainbox settings-box">
+            <div  id="Xsettings" class="xmark xplacesettings">close</div>
+            <div class="settings-container">
+                <div class="mode-container">
+                    <button id="modebtn" class="mode-button">
+                        <div class="tmbox" id="modebox">
+                            <p class="text-mode">easy</p>
+                            <p class="text-mode">translit</p>
+                            <p class="text-mode">regular</p>
+                        </div>
+                    </button>
+                    <p class="settings-text">позволяет скрыть транслитерацию на клавиатуре</p>    
+                </div>
+                <div class="mode-container">
+                    <button id="keybdbtn" class="mode-button">
+                        <div class="tmbox" id="keybdbox">
+                            <p class="text-mode">stable</p>
+                            <p class="text-mode">k.board</p>
+                            <p class="text-mode">random</p>
+                        </div>
+                    </button>
+                    <p class="settings-text">позволяет рандомно генерировать клавиши</p>
+                </div>
+                <div class="mode-container">
+                    <button id="fontbtn" class="mode-button">
+                        <div class="tmbox" id="fontbox">
+                            <p class="text-mode">SansGe</p>
+                            <p class="text-mode">fonts</p>
+                            <p class="text-mode">SerifGe</p>
+                        </div>
+                    </button>
+                    <p class="settings-text">изменяет шрифт грузинской раскладки</p>
+                </div>  
             </div>
-        </button>
-        <button id="fontbtn" class="mode-button">
-            <div class="tmbox" id="fontbox">
-                <p class="text-mode">SansGe</p>
-                <p class="text-mode">шрифт</p>
-                <p class="text-mode">SerifGe</p>
-            </div>
-        </button>
-        <button id="about" class="about-button">about</button>
-        <div class="about-box">
-            <div class="xmark">close</div>
+        </div>
+        <button id="about" class="main-button">about</button>
+        <div class="mainbox about-box">
+            <div id="Xabout" class="xmark xplaceabout">close</div>
             <p class="about-text">Этот тренажер написан исключительно под автора, который волей случая оказался в начале марта 2022 года в Тбилиси и, как многие из его окружения, был совершенно не знаком с местным наречием. Конечно, в Грузии можно говорить на английском или даже русском, но есть подозрение, что мы здесь задержимся, а потому стоит подтянуть грузинский, чтобы располагать к себе людей.</p>
             <p class="about-text">Самым сложным, на первый взгляд, видится алфавит. Чтобы не учить его по картинке, придуман такой тренажер.</p>
-            <p class="about-text">Есть два режима: easy (с транслитерацией) и regular. Также добавлена смена шрифта, чтобы не привыкать к единственному начертанию.</p>
+            <p class="about-text">Есть два режима: easy и regular (с транслитерацией и без). Также добавлена смена шрифта, чтобы не привыкать к единственному начертанию.</p>
+            <a class="link" href="https://t.me/Jeromkeee" target="_blank">telegram для связи<svg class="contact">
+                <use xlink:href="./telegram.svg#tg"></use>
+            </svg></a>
         </div>
     </header>
     <div>

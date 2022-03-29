@@ -20,6 +20,10 @@ html {
     src: url(./fonts/Montserrat/static/Montserrat-Light.ttf);
 }
 @font-face {
+    font-family: Roboto;
+    src: url(./fonts/Roboto/Roboto-Medium.ttf);
+}
+@font-face {
     font-family: NotoSansGeorgian;
     src: url(./fonts/Noto_Sans_Georgian/static/NotoSansGeorgian/NotoSansGeorgian-Light.ttf);
 }
@@ -37,10 +41,12 @@ html {
     padding: 20px 20px 10px 20px;
     height: 80px;
     margin-bottom: 20px;
-    max-width: 400px;
+    max-width: 450px;
 }
 
 .mode-button {
+    margin-right: 10px;
+    flex-shrink: 0;
     overflow: hidden;
     padding: 0 10px;
     width: 100px;
@@ -51,13 +57,26 @@ html {
     background-color: #cccccc;
 }
 
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.mode-container {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+}
+
 .mode-button:active {
     background-color: #afafaf;
     transform: translate(0, 2px);
     transition: 0.1;
 }
 
-.about-button {
+.main-button {
     font-family: 'Montserrat';
     font-size: 18px;
     text-align: center;
@@ -81,7 +100,7 @@ html {
     min-width: 110px;
 }
 
-.about-button:active {
+.main-button:active {
     background-color: #afafaf;
     transform: translate(0, 2px);
     transition: 0.1;
@@ -121,50 +140,88 @@ html {
     100% { transform: translateX(0px) }
 }
 
-.about-box {
+.mainbox {
     font-family: 'Montserrat';
     color: #3a3a27;
     font-weight: 600;
     position: absolute;
+    background-color: white;
+    z-index: 2;
+    display: none;
+}
+
+.about-box {
     left: 100vw;
     top: 0px;
-    background-color: white;
     width: 100vw;
     height: 100vh;
     padding: 10px 40px 100px 40px;
-    z-index: 2;
-    display: none;
 }
 
 .about-box.active {
     display: inline;
     animation-duration: .3s;
-    animation-name: slidemenu;
+    animation-name: slidemenuleft;
     animation-fill-mode: forwards;
 }
 
-@keyframes slidemenu {
+@keyframes slidemenuleft {
     0% { left: 100vw }
     100% { left: 0px }
+}
+
+.settings-box {
+    top: -330px;
+    left: 0px;
+    width: 100vw;
+    height: 330px;
+    padding: 10px 30px 10px 30px;
+    background: linear-gradient(white 250px, transparent);
+}
+
+.settings-box.active {
+    display: inline;
+    animation-duration: .3s;
+    animation-name: slidemenudown;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slidemenudown {
+    0% { top: -330px; }
+    100% { top: 0px }
+}
+
+.settings-text {
+    padding: 5px 0;
+    font-size: 13px;
+    font-weight: 800;
+    max-width: 450px;
 }
 
 .about-text {
     margin: 0 auto;
     padding: 5px 0;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 800;
-    max-width: 650px;
+    max-width: 450px;
 }
 
 .xmark {
     margin: 0 auto;
-    padding: 15px 0 7vh 0px;
-    max-width: 650px;
+    max-width: 450px;
     font-size: 20px;
-    text-align: end;
     cursor: pointer;
+}
 
-  }
+.xplaceabout {
+    padding: 15px 20px 7vh 20px;
+    text-align: end;
+}
+
+.xplacesettings {
+    padding: 15px 20px 20px 20px;
+    text-align: start;
+}
 
 /*---header---*/
 
@@ -179,6 +236,8 @@ html {
     flex-direction: row-reverse;
     padding: 10px 15px;
     width: calc(100vw - 10px);
+    max-width: 450px;
+    margin: 0 auto;
     height: 70px;
     font-family: 'Montserrat';
     font-weight: 600;
@@ -203,14 +262,27 @@ html {
     transition: .2s;
     animation-duration: 1.8s;
     animation-timing-function: linear;
-    animation-name: showtranslit;
+    animation-name: showtranslit2;
 }
 
-  @keyframes showtranslit {
+@media (max-width: 450px) {
+    .help-button.active {
+        animation-name: showtranslit1;
+    }
+}
+
+  @keyframes showtranslit2 {
     0% { background-color: #dfe079; }
-    12% { width: 350px; transform: translateX(0px) }
-    17% { width: 330px; transform: translateX(-20px) }
-    22% { width: 350px; transform: translateX(0px) }
+    12% { width: 420px; transform: translateX(0px) }
+    17% { width: 390px; transform: translateX(-30px) }
+    22% { width: 420px; transform: translateX(0px) }
+    100% { background-color: #e8e9b9 }
+  }
+  @keyframes showtranslit1 {
+    0% { background-color: #dfe079; }
+    12% { width: calc(89vw); transform: translateX(0px) }
+    17% { width: calc(89vw - 20px); transform: translateX(-20px) }
+    22% { width: calc(89vw); transform: translateX(0px) }
     100% { background-color: #e8e9b9 }
   }
 
@@ -239,6 +311,8 @@ html {
     justify-content: center;
     gap: 4px;
     width: calc(100vw - 10px);
+    max-width: 450px;
+    margin: 0 auto;
 }
 
 .key {
@@ -255,6 +329,7 @@ html {
 
 .letter {
     width: calc(9vw - 5px);
+    max-width: 37px;
     height: 55px;
 }
 
@@ -370,4 +445,18 @@ html {
     100% { transform: translate(calc(-100vw), 10px) }
   }
 
+.contact {
+    height: 30px;
+    width: 30px;
+    fill: #3a3a27;
+}
 
+.link {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 20px 30px;
+    gap: 10px;
+    text-decoration: none;
+    color: #3a3a27;
+}
