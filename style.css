@@ -64,6 +64,31 @@ html {
     margin: 0 auto;
 }
 
+.lessons-container {
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+.lesson {
+    height: 480px;
+    width: calc(100vw - 60px);
+    max-width: 420px;
+}
+
+.lesson.disable {
+    display: none;
+}
+
+.lesson.active {
+    animation-duration: .23s;
+    animation-name: slideleft;
+}
+
+@keyframes slideleft {
+    0% {  transform: translateX(0) }
+    100% {  transform: translate(-100vw) }
+}
+
 .mode-container {
     display: flex;
     align-items: center;
@@ -89,6 +114,56 @@ html {
     border-radius: 10px;
     cursor: pointer;
     background-color: #cccccc;
+}
+
+.lessons-text {
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.keylesson {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.keylessonmargin1 {
+    margin: 20px auto;
+}
+
+.keylessonmargin2 {
+    margin: 20px auto 70px auto;
+}
+
+.navbtn {
+    font-family: 'Montserrat';
+    font-size: 16px;
+    color: #3a3a27;
+    font-weight: 600;
+    width: 60px;
+    height: 40px;
+    border: 0;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: #cccccc;
+}
+
+.nextbtn {
+    position: absolute;
+    right: 70px;
+}
+
+.prevbtn {
+    position: absolute;
+    left: 70px;
+}
+
+.nav-block {
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 450px;
 }
 
 .text-mode {
@@ -143,7 +218,6 @@ html {
 .mainbox {
     font-family: 'Montserrat';
     color: #3a3a27;
-    font-weight: 600;
     position: absolute;
     background-color: white;
     z-index: 2;
@@ -170,24 +244,44 @@ html {
     100% { left: 0px }
 }
 
+.lessons-box {
+    top: -770px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    padding: 10px 30px 10px 30px;
+}
+
+.lessons-box.active {
+    display: inline;
+    animation-duration: .3s;
+    animation-name: slidemenudown77;
+    animation-fill-mode: forwards;
+}
+
 .settings-box {
     top: -330px;
     left: 0px;
     width: 100vw;
-    height: 330px;
+    height: 100vh;
     padding: 10px 30px 10px 30px;
-    background: linear-gradient(white 250px, transparent);
+    background: linear-gradient(white 250px, transparent 350px);
 }
 
 .settings-box.active {
     display: inline;
     animation-duration: .3s;
-    animation-name: slidemenudown;
+    animation-name: slidemenudown33;
     animation-fill-mode: forwards;
 }
 
-@keyframes slidemenudown {
+@keyframes slidemenudown33 {
     0% { top: -330px; }
+    100% { top: 0px }
+}
+
+@keyframes slidemenudown77 {
+    0% { top: -770px; }
     100% { top: 0px }
 }
 
@@ -210,7 +304,14 @@ html {
     margin: 0 auto;
     max-width: 450px;
     font-size: 20px;
+    font-weight: 600;
     cursor: pointer;
+}
+
+.linkplace{
+    margin: 0 auto;
+    max-width: 450px;
+    font-weight: 600;
 }
 
 .xplaceabout {
@@ -218,9 +319,19 @@ html {
     text-align: end;
 }
 
+.xplacelessons {
+    padding: 15px 20px 20px 20px;
+    text-align: end;
+}
+
 .xplacesettings {
     padding: 15px 20px 20px 20px;
     text-align: start;
+}
+
+.xplacetransparent {
+    margin-top: 30px;
+    height: calc(100vh - 300px);
 }
 
 /*---header---*/
@@ -331,6 +442,11 @@ html {
     width: calc(9vw - 5px);
     max-width: 37px;
     height: 55px;
+}
+
+.lettercard {
+    width: 40px;
+    height: 58px;
 }
 
 .keyGe {

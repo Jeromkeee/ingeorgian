@@ -12,7 +12,7 @@
     <header class="header">
         <button id="settings" class="main-button">settings</button>
         <div class="mainbox settings-box">
-            <div  id="Xsettings" class="xmark xplacesettings">close</div>
+            <div id="Xsettings" class="xmark xplacesettings">close</div>
             <div class="settings-container">
                 <div class="mode-container">
                     <button id="modebtn" class="mode-button">
@@ -45,6 +45,101 @@
                     <p class="settings-text">изменяет шрифт грузинской раскладки</p>
                 </div>  
             </div>
+            <div id="Tsettings" class="xmark xplacetransparent"></div>
+        </div>
+        <button id="lessons" class="main-button">lessons</button>
+        <div class="mainbox lessons-box">
+            <div id="Xlessons" class="xmark xplacelessons">close</div>
+            <div class="lessons-container">
+                <div class="lesson">
+                    <p class="lessons-text">Карточка №1</p>
+                    <p class="lessons-text">Грузинский алфавит содержит 33 буквы, читается слева направо и не имеет прописных (заглавных) букв. Здесь нет звука Ф и йотированных гласных (Е, Ё, Ю, Я). Есть всего 5 гласных, по звучанию как в русском:</p>
+                    <div class="keylesson keylessonmargin2">
+                        <div class="key lettercard">
+                            <p class="keyGe">ა</p>
+                            <p class="keyRu">а</p>
+                        </div>
+                        <div class="key lettercard">
+                            <p class="keyGe">ი</p>
+                            <p class="keyRu">и</p>
+                        </div>
+                        <div class="key lettercard">
+                            <p class="keyGe">ე</p>
+                            <p class="keyRu">э</p>
+                        </div>
+                        <div class="key lettercard">
+                            <p class="keyGe">ო</p>
+                            <p class="keyRu">о</p>
+                        </div>
+                        <div class="key lettercard">
+                            <p class="keyGe">უ</p>
+                            <p class="keyRu">у</p>
+                        </div>
+                    </div>
+                    <p class="lessons-text">При кликах по клавишам включается озвучка.</p>
+                </div>
+                <div class="lesson disable">
+                    <p class="lessons-text">Карточка №2</p>
+                    <p class="lessons-text">Следующие согласные аналогичны русским:</p>
+                    <div class="keylesson keylessonmargin1">
+                        <div class="key lettercard">
+                            <p class="keyGe">ბ</p>
+                            <p class="keyRu">б</p>
+                        </div>
+                        <div class="key lettercard">
+                            <p class="keyGe">დ</p>
+                            <p class="keyRu">д</p>
+                        </div>
+                        <div class="key lettercard">
+                            <p class="keyGe">ვ</p>
+                            <p class="keyRu">в</p>
+                        </div>
+                        <div class="key lettercard">
+                            <p class="keyGe">ლ</p>
+                            <p class="keyRu">л</p>
+                        </div>
+                    </div>
+                    <div class="keylesson keylessonmargin2">
+                        <div class="key lettercard">
+                            <p class="keyGe">მ</p>
+                            <p class="keyRu">м</p>
+                        </div>
+                        <div class="key lettercard">
+                            <p class="keyGe">ნ</p>
+                            <p class="keyRu">н</p>
+                        </div>
+                        <div class="key lettercard">
+                            <p class="keyGe">რ</p>
+                            <p class="keyRu">р</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lesson disable">
+                    <p class="lessons-text">Карточка №3</p>
+                    <p class="lessons-text">Следующий набор звуков отличается лишь придыханием и для удобства сведен в таблицу:</p>
+                    <p class="lessons-text"></p>
+                    <p class="lessons-text">Придыхание - это короткий выдох после извлечения звука.</p>
+                    <p class="lessons-text">Кто знаком с английским, может наблюдать этот эффект в словах tore [tʰɔɹ] (/t/ с придыханием) и store [stɔɹ] — без.</p>
+                </div>
+                <div class="lesson disable">
+                    <p class="lessons-text">Карточка №4</p>
+                    <p class="lessons-text">Следующие согласные аналогичны русским:</p>
+                    <p class="lessons-text">Две согласные ниже отвечают звуку "г" в обычном и южном наречии (гэканье):</p>
+                </div>
+                <div class="lesson disable">
+
+                </div>
+                <div class="lesson disable">
+
+                </div>
+                <div class="lesson disable">
+
+                </div> 
+            </div>
+            <div class="nav-block">
+                <button id="prevcard" class="navbtn prevbtn hideswitcher">prev</button>
+                <button id="nextcard" class="navbtn nextbtn">next</button>
+            </div>
         </div>
         <button id="about" class="main-button">about</button>
         <div class="mainbox about-box">
@@ -52,9 +147,9 @@
             <p class="about-text">Этот тренажер написан исключительно под автора, который волей случая оказался в начале марта 2022 года в Тбилиси и, как многие из его окружения, был совершенно не знаком с местным наречием. Конечно, в Грузии можно говорить на английском или даже русском, но есть подозрение, что мы здесь задержимся, а потому стоит подтянуть грузинский, чтобы располагать к себе людей.</p>
             <p class="about-text">Самым сложным, на первый взгляд, видится алфавит. Чтобы не учить его по картинке, придуман такой тренажер.</p>
             <p class="about-text">Есть два режима: easy и regular (с транслитерацией и без). Также добавлена смена шрифта, чтобы не привыкать к единственному начертанию.</p>
-            <a class="link" href="https://t.me/Jeromkeee" target="_blank">telegram для связи<svg class="contact">
+            <div class="linkplace"><a class="link" href="https://t.me/Jeromkeee" target="_blank">telegram для связи<svg class="contact">
                 <use xlink:href="./telegram.svg#tg"></use>
-            </svg></a>
+            </svg></a></div>
         </div>
     </header>
     <div>
