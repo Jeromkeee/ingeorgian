@@ -79,14 +79,24 @@ html {
     display: none;
 }
 
-.lesson.active {
+.lesson.activeL {
     animation-duration: .23s;
     animation-name: slideleft;
+}
+
+.lesson.activeR {
+    animation-duration: .23s;
+    animation-name: slideright;
 }
 
 @keyframes slideleft {
     0% {  transform: translateX(0) }
     100% {  transform: translate(-100vw) }
+}
+
+@keyframes slideright {
+    0% {  transform: translateX(0) }
+    100% {  transform: translate(100vw) }
 }
 
 .mode-container {
@@ -135,6 +145,25 @@ html {
 
 .keylessonmargin2 {
     margin: 20px auto 70px auto;
+}
+
+.keylessonmargin3 {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding-left: 40px;
+}
+
+.rareletter {
+    position: relative;
+    top: -55px;
+    left: 50px;
+    width: 300px;
+    font-family: 'Montserrat';
+    font-size: 16px;
+    color: #3a3a27;
+    font-weight: 600;
+    padding: 10px;
 }
 
 .navbtn {
@@ -431,6 +460,18 @@ html {
     border-radius: 3px;
     cursor: pointer;
     background-color: #377491;
+}
+
+.fakekey {
+    border: 0;
+    border-radius: 3px;
+    background-color: #e1e5e8;
+    font-family: 'Montserrat';
+    font-size: 18px;
+    color: #3a3a27;
+    font-weight: 600;
+    min-width: 110px;
+    padding: 10px;
 }
 
 .key:active {

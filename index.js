@@ -270,10 +270,10 @@ const nextcardbtn = document.getElementById('nextcard');
 const allcards = document.querySelectorAll('.lesson');
 
 function nextcard() {
-    allcards[currentcard].classList.add('active')
+    allcards[currentcard].classList.add('activeL')
     prevcardbtn.classList.remove('hideswitcher')
     function gonext() {
-        allcards[currentcard].classList.remove('active')
+        allcards[currentcard].classList.remove('activeL')
         allcards[currentcard].classList.add('disable')
         allcards[currentcard + 1].classList.remove('disable')
         currentcard++ 
@@ -283,10 +283,10 @@ function nextcard() {
 }
 
 function prevcard() {
-    allcards[currentcard].classList.add('active')
+    allcards[currentcard].classList.add('activeR')
     nextcardbtn.classList.remove('hideswitcher')
     function goprev() {
-        allcards[currentcard].classList.remove('active')
+        allcards[currentcard].classList.remove('activeR')
         allcards[currentcard].classList.add('disable')
         allcards[currentcard - 1].classList.remove('disable')
         currentcard--
