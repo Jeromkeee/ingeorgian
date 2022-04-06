@@ -90,6 +90,23 @@ function regenform() {
 
 btton.addEventListener('click', regenform);
 
+/*---play audio---*/
+
+const audio = new Audio();
+const lessonletters = document.querySelectorAll('.keylesson');
+
+function letterAudio(event) {
+    let ltrk = event.target.closest('.lettercard').querySelector('.keyGe').textContent;
+    let ltrn = Object.keys(alphabet).indexOf(ltrk) + 1
+    audio.src = `./audio/${ltrn}.mp3`;
+    audio.currentTime = 0;
+    audio.play();
+}
+
+for (let i = 0; i < lessonletters.length; i++) {
+    lessonletters[i].addEventListener('click', letterAudio)
+}
+
 /*---typing---*/
 
 const backspace = document.getElementById('backspace');
@@ -127,7 +144,6 @@ function clearall() {
     backspace.addEventListener('click', deleteletter);
     delall.addEventListener('click', clearall);
     document.addEventListener('keydown', deleteletterkey);
-
 
 /*---checking---*/
 
@@ -244,10 +260,58 @@ function closeabout() {
 aboutbtn.addEventListener('click', showabout);
 aboutclose.addEventListener('click', closeabout);
 
+/*---lessons---*/
+
+let currentcard = 0
+const lessonsbtn = document.getElementById('lessons');
+const lessonsclose = document.getElementById('Xlessons');
+const prevcardbtn = document.getElementById('prevcard');
+const nextcardbtn = document.getElementById('nextcard');
+const allcards = document.querySelectorAll('.lesson');
+
+function nextcard() {
+    allcards[currentcard].classList.add('activeL')
+    prevcardbtn.classList.remove('hideswitcher')
+    function gonext() {
+        allcards[currentcard].classList.remove('activeL')
+        allcards[currentcard].classList.add('disable')
+        allcards[currentcard + 1].classList.remove('disable')
+        currentcard++ 
+        if (currentcard + 1 === allcards.length) nextcardbtn.classList.add('hideswitcher')
+    }
+    setTimeout(gonext, 200)  
+}
+
+function prevcard() {
+    allcards[currentcard].classList.add('activeR')
+    nextcardbtn.classList.remove('hideswitcher')
+    function goprev() {
+        allcards[currentcard].classList.remove('activeR')
+        allcards[currentcard].classList.add('disable')
+        allcards[currentcard - 1].classList.remove('disable')
+        currentcard--
+        if (currentcard === 0) prevcardbtn.classList.add('hideswitcher')
+    }
+    setTimeout(goprev, 200)
+}
+
+function showlessons() {
+    document.querySelector('.lessons-box').classList.add('active')
+}
+function closelessons() {
+    document.querySelector('.lessons-box').classList.remove('active')
+}
+
+lessonsbtn.addEventListener('click', showlessons);
+lessonsclose.addEventListener('click', closelessons);
+nextcardbtn.addEventListener('click', nextcard);
+prevcardbtn.addEventListener('click', prevcard);
+
 /*---settings---*/
 
 const settingsbtn = document.getElementById('settings');
 const settingsclose = document.getElementById('Xsettings');
+const settingsclose2 = document.getElementById('Tsettings');
 
 function showsettings() {
     document.querySelector('.settings-box').classList.add('active')
@@ -258,7 +322,7 @@ function closesettings() {
 
 settingsbtn.addEventListener('click', showsettings);
 settingsclose.addEventListener('click', closesettings);
-
+settingsclose2.addEventListener('click', closesettings);
 /*---solve scale problem on phone---*/
 document.addEventListener('touchmove', function (event) {
     if (event.scale !== 1) { event.preventDefault(); }
