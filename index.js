@@ -170,13 +170,17 @@ function switchmode () {
     const transltRu = document.querySelectorAll('.keyRu');
     if (mode === 'easy') {
         mode = 'regular';
-        transltRu.forEach(elem => elem.classList.add('showRu'));
+        transltRu.forEach(elem => {
+            if (keyboard.contains(elem)) elem.classList.add('showRu')
+        });
         switcher.classList.remove('hideswitcher');
         modebox.classList.add('fromleft')
         setTimeout(() => modebox.classList.remove('fromleft'), 1000)
     } else {
         mode = 'easy';
-        transltRu.forEach(elem => elem.classList.remove('showRu'));
+        transltRu.forEach(elem => {
+            if (keyboard.contains(elem)) elem.classList.remove('showRu')
+    });
         switcher.classList.add('hideswitcher');
         modebox.classList.add('fromright')
         setTimeout(() => modebox.classList.remove('fromright'), 1000)
@@ -232,13 +236,17 @@ const switcher = document.getElementById('helper');
 
 function hidetranslit() {
     const transltRu = document.querySelectorAll('.keyRu');
-    transltRu.forEach(elem => elem.classList.add('showRu'));
+    transltRu.forEach(elem => {
+        if (keyboard.contains(elem)) elem.classList.add('showRu')
+    });
     switcher.classList.remove('active');
 }
 
 function showtranslit() {
     const transltRu = document.querySelectorAll('.keyRu');
-    transltRu.forEach(elem => elem.classList.remove('showRu'));
+    transltRu.forEach(elem => {
+        if (keyboard.contains(elem)) elem.classList.remove('showRu')
+});
     switcher.classList.add('active');
     setTimeout(hidetranslit, 1800)
 }
