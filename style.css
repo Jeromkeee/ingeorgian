@@ -467,10 +467,10 @@ html {
     border-radius: 3px;
     background-color: #e1e5e8;
     font-family: 'Montserrat';
-    font-size: 17px;
+    font-size: 16px;
     color: #3a3a27;
     font-weight: 600;
-    min-width: 90px;
+    width: 85px;
     padding: 14px 5px;
 }
 
